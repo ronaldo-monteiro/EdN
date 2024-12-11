@@ -1,26 +1,112 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Formulário de Cadastro de Produto</title>
+    <style>
+        /* Definindo estilo para o corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Estilizando o formulário */
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        /* Estilizando o título dentro do formulário */
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Estilizando os labels */
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Estilizando os inputs e textarea */
+        input[type="text"], input[type="number"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 16px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        /* Estilo para o botão de submit */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Melhorando a aparência da textarea */
+        textarea {
+            resize: vertical;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Testando Repositório!</h1>
-    </header>
-    <section>
-        <p>Uma breve descrição sobre você.</p>
-    </section>
-    <section>
-        <h2>Minhas Habilidades</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <!-- Adicione mais habilidades conforme necessário -->
-        </ul>
-    </section>
+    <form action="/enviar-dados" method="POST">
+        <h1>Cadastro de Produto</h1>
+        <label for="nome_produto">Nome do Produto:</label>
+        <input type="text" id="nome_produto" name="nome_produto" required><br>
+
+        <label for="codigo_produto">Código do Produto:</label>
+        <input type="text" id="codigo_produto" name="codigo_produto" required><br>
+
+        <label for="categoria">Categoria:</label>
+        <select id="categoria" name="categoria" required>
+            <option value="eletronicos">Eletrônicos</option>
+            <option value="alimentos">Alimentos</option>
+            <option value="vestuario">Vestuário</option>
+            <option value="cosmeticos">Cosméticos</option>
+        </select><br>
+
+        <label for="quantidade_estoque">Quantidade em Estoque:</label>
+        <input type="number" id="quantidade_estoque" name="quantidade_estoque" min="0" required><br>
+
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" name="preco" step="0.01" min="0" required><br>
+
+        <label for="data_validade">Data de Validade:</label>
+        <input type="date" id="data_validade" name="data_validade" required><br>
+
+        <label for="descricao">Descrição do Produto:</label><br>
+        <textarea id="descricao" name="descricao" rows="4" cols="50" required></textarea><br>
+
+        <button type="submit">Cadastrar Produto</button>
+    </form>
 </body>
 </html>
+
